@@ -60,7 +60,7 @@ logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-o', '--output-dir', help='path to output directory where to write results", type=str, default='.')
+    parser.add_argument('-o', '--output-dir', help='path to output directory where to write results', type=str, default='.')
     args = parser.parse_args()
     
     se = senteval.engine.SE(params_senteval, batcher, prepare)
