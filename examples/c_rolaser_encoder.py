@@ -64,16 +64,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     se = senteval.engine.SE(params_senteval, batcher, prepare)
-    #transfer_tasks = ['STS12', 'STS13', 'STS14', 'STS15', 'STS16',
-    #                  'MR', 'CR', 'MPQA', 'SUBJ', 'SST2', 'SST5', 'TREC', 'MRPC',
-    #                  'SICKEntailment', 'SICKRelatedness', 'STSBenchmark',
-    #                  'Length', 'WordContent', 'Depth', 'TopConstituents',
+    transfer_tasks = ['STS12', 'STS13', 'STS14', 'STS15', 'STS16',
+                      'MR', 'CR', 'MPQA', 'SUBJ', 'SST2', 'SST5', 'TREC', 'MRPC',
+                      'SICKEntailment', 'SICKRelatedness', 'STSBenchmark']
+    #probing_tasks = ['Length', 'WordContent', 'Depth', 'TopConstituents',
     #                  'BigramShift', 'Tense', 'SubjNumber', 'ObjNumber',
     #                  'OddManOut', 'CoordinationInversion']
-    probing_tasks = ['Length', 'WordContent', 'Depth', 'TopConstituents',
-                      'BigramShift', 'Tense', 'SubjNumber', 'ObjNumber',
-                      'OddManOut', 'CoordinationInversion']
-    results = se.eval(probing_tasks)
+    results = se.eval(transfer_tasks)
     print(results)
 
     os.makedirs(args.output_dir, exist_ok=True)
