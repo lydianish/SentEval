@@ -65,8 +65,8 @@ if __name__ == "__main__":
     #                  'Length', 'WordContent', 'Depth', 'TopConstituents',
     #                  'BigramShift', 'Tense', 'SubjNumber', 'ObjNumber',
     #                  'OddManOut', 'CoordinationInversion']
-    probing_tasks = ['Length'] #, 'WordContent', 'Depth', 'TopConstituents',
-    #                  'BigramShift', 'Tense', 'SubjNumber', 'ObjNumber',
-    #                  'OddManOut', 'CoordinationInversion']
+    probing_tasks = ['Length', 'WordContent', 'Depth', 'TopConstituents',
+                      'BigramShift', 'Tense', 'SubjNumber', 'ObjNumber',
+                      'OddManOut', 'CoordinationInversion']
     results = se.eval(probing_tasks)
     print(results)
