@@ -44,8 +44,8 @@ def batcher(params, batch):
 
 # Load RoLASER model
 laser = RoLaserEncoder(
-    model_path=f"{PATH_TO_LASER}/models/laser.pt",
-    vocab=f"{PATH_TO_LASER}/models/laser.cvocab",
+    model_path=f"{PATH_TO_LASER}/models/laser2.pt",
+    vocab=f"{PATH_TO_LASER}/models/laser2.cvocab",
     tokenizer="spm"
 )
 
