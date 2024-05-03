@@ -39,7 +39,7 @@ def prepare(params, samples):
 
 def batcher(params, batch):
     batch = [' '.join(sent) if sent != [] else '.' for sent in batch]
-    embeddings = params['rolaser'].encode(batch)
+    embeddings = params['c_rolaser'].encode(batch)
     return embeddings
 
 # Load c-RoLASER model
