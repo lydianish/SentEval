@@ -14,6 +14,7 @@ from __future__ import absolute_import, division, unicode_literals
 
 import sys, os
 import logging
+import argparse, json
 
 # Set PATHs
 PATH_TO_SENTEVAL = '../'
@@ -58,6 +59,10 @@ params_senteval['c_rolaser'] = c_rolaser
 logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-o', '--output-dir', help='path to output directory where to write results", type=str, default='.')
+    args = parser.parse_args()
+    
     se = senteval.engine.SE(params_senteval, batcher, prepare)
     #transfer_tasks = ['STS12', 'STS13', 'STS14', 'STS15', 'STS16',
     #                  'MR', 'CR', 'MPQA', 'SUBJ', 'SST2', 'SST5', 'TREC', 'MRPC',
@@ -70,3 +75,8 @@ if __name__ == "__main__":
                       'OddManOut', 'CoordinationInversion']
     results = se.eval(probing_tasks)
     print(results)
+
+    os.makedirs(args.output_dir, exist_ok=True)
+    with open(f'{args.output_dir}/SentEval_c-RoLASER.json', 'w') as output_file:
+        json.dump(results, output_file, indent=4)
+
