@@ -20,7 +20,7 @@ import argparse, json
 PATH_TO_SENTEVAL = '../'
 PATH_TO_DATA = '../data'
 PATH_TO_FAIRSEQ = f"{os.environ['SCRATCH']}/fairseq"
-PATH_TO_LASER = f"{os.environ['SCRATCH']}/LASER/source"
+PATH_TO_LASER = f"{os.environ['SCRATCH']}/LASER"
 PATH_TO_ROLASER = f"{os.environ['SCRATCH']}/RoLASER"
 
 # import SentEval
@@ -29,7 +29,7 @@ import senteval
 
 # import LaserEncoder class
 sys.path.insert(0, PATH_TO_FAIRSEQ)
-sys.path.insert(0, PATH_TO_LASER)
+sys.path.insert(0, f"{PATH_TO_LASER}/source")
 sys.path.insert(0, PATH_TO_ROLASER)
 from rolaser import RoLaserEncoder
 
